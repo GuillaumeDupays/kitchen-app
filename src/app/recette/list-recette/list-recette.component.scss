@@ -1,0 +1,16 @@
+div {
+  min-width: 350px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+mat-form-field {
+  margin: 0 0 0 15px;
+  padding: 0;
+  border: 0;
+}
+
+#aliment-list {
+  display: flex;
+  flex-wrap: wrap;
+}

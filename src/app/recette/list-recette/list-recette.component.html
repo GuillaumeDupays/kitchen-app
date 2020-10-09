@@ -1,0 +1,19 @@
+
+  <div class="div-categorie">
+    <mat-form-field>
+      <mat-label>Categories</mat-label>
+      <mat-select (selectionChange)="filterRecettes($event)">
+        <mat-option *ngFor="let categorie of categories" [value]="categorie.id">
+          {{categorie.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div id="aliment-list">
+    <app-details-recette
+      *ngFor="let recette of recettes"
+      [recette]="recette">
+    </app-details-recette>
+  </div>
+

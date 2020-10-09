@@ -1,0 +1,13 @@
+<!--
+
+
+<p><a>{{recette.nomRecette}}</a></p>
+
+<div *ngFor="let rec of recettes">{{rec.nomRecette}} {{rec.id}}</div>
+-->
+<mat-card *ngIf="recette">
+    <a [routerLink]="[ recette.id ]">
+      <mat-card-title>{{ recette.nomRecette }}</mat-card-title>
+      <img mat-card-image [src]="endpoint + recette.img.url">
+    </a>
+</mat-card>

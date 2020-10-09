@@ -1,0 +1,16 @@
+
+
+<mat-card>
+  <h3>Ajouter un aliment</h3>
+  <form [formGroup]="form" (ngSubmit)="addAliment()">
+    <input type="text" placeholder="produit" formControlName="nomProduit" ><br><br>
+    <input type="number" placeholder="poids" formControlName="poids" >
+    <input type="text" placeholder="unité de mesure" formControlName="uniteMesure" ><br><br>
+    <select formControlName="categorie">
+      <option *ngFor="let catList of categorieList">{{catList}}</option>
+    </select><br><br>
+
+    <button type="submit">Ajout de l'aliment</button>
+  </form>
+</mat-card>
+

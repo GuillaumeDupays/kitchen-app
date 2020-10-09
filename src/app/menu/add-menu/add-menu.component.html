@@ -1,0 +1,59 @@
+
+<div id="aliment-list">
+  <mat-card class="small-card">
+    <form [formGroup]="formMenu" (ngSubmit)="addMenu()">
+      <mat-card-title>Menus de la semaine</mat-card-title>
+      <mat-form-field>
+
+        <mat-label>Jour</mat-label>
+        <mat-select formControlName="day" required>
+          <mat-option *ngFor="let jour of jours" [value]="jour.nomJour">
+            {{jour.nomJour}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br><br>
+      <mat-form-field>
+        <mat-label>Midi</mat-label>
+        <mat-select formControlName="midi" required>
+          <mat-option *ngFor="let recette of recettes" [value]="recette.nomRecette">
+            {{recette.nomRecette}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br><br>
+      <mat-form-field>
+        <mat-label>Soir</mat-label>
+        <mat-select formControlName="soir" required>
+          <mat-option *ngFor="let recette of recettes" [value]="recette.nomRecette">
+            {{recette.nomRecette}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br><br>
+      <button mat-stroked-button color="primary" type="submit">Valider ces choix</button>
+      <button mat-stroked-button color="warn"
+              (click)="deleteMenus(menus.selectedOptions.selected)"
+              *ngIf="menus.selectedOptions.selected.length > 0">
+        Supprimer la sélection
+      </button>
+      <span *ngIf="waitStp"><img src="assets/Bean Eater-1s-200px.gif" alt="spinner" class="spinner"/></span>
+    </form>
+  </mat-card>
+  <mat-card class="small-card">
+    <h2>Jour : {{ formMenu.value.day }}</h2>
+    <li>Midi : {{ formMenu.value.midi }}</li>
+    <li>Soir : {{ formMenu.value.soir }}</li>
+    <h3>Menus sélectionnés: {{menus.selectedOptions.selected.length}}</h3>
+  </mat-card>
+<mat-card class="small-card">
+  <mat-selection-list #menus>
+    <mat-list-option *ngFor="let menu of allMenus" class="menus" [value]="menu.id">
+      <mat-card-title>{{menu.day}} :</mat-card-title>
+      <li>Midi : {{menu.midi}}</li>
+      <li>Soir : {{menu.soir}}</li>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-card>
+</div>
+
+
+
+

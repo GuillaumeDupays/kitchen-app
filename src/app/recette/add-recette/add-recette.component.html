@@ -1,0 +1,27 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="addRecette()">
+    <label>
+      <input placeholder="Titre de la recette" type="text" formControlName="nomRecette" id="nomRecette">
+    </label><br><br>
+    <div formGroupName="aliments">
+      <label>
+        <input placeholder="Aliments" type="text" formControlName="nomProduit" id="nomProduit">
+      </label>
+    </div><br><br>
+    <label>
+      <div formGroupName="recette_categorie">
+        <input placeholder="Catégorie" type="text" formControlName="name" id="name">
+      </div>
+
+    </label><br><br>
+    <label>
+      <input placeholder="Etapes" type="number" formControlName="etapes" id="etapes">
+    </label><br><br>
+    <span class="text-primary">FICHIER*</span><br>
+    <div class="form-group custom-file">
+      <input type="file" class="custom-file-input" id="img" formControlName="img" required>
+      <label class="custom-file-label" for="img" data-browse="Choisir un fichier">Votre CV au format PDF</label>
+    </div><br><br>
+    <button type="submit">Enregistrer la recette</button>
+  </form>
+</mat-card>

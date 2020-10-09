@@ -1,0 +1,19 @@
+<mat-card>
+  <div *ngIf="(preparation$ | async) as prepa">
+    <h2>{{prepa.nomRecette}}</h2>
+    <img mat-card-image [src]="endpoint + prepa.img.url">
+    <h4>Ingrédients</h4>
+    <p *ngFor="let item of prepa.aliments">
+      {{item.nomProduit}}
+    </p>
+    <mat-card-title>Preparation</mat-card-title>
+    <p *ngFor="let etape of prepa.etapes">
+      {{etape.numEtape}} :
+      {{etape.description}}
+    </p>
+  </div>
+</mat-card>
+
+
+
+<!--{{preparation$ | async | json}}-->
